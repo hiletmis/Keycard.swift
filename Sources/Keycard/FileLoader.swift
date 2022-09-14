@@ -1,5 +1,4 @@
 import Foundation
-import ZipArchive
 
 struct FileLoader {
     private static let blockSize = 247 // 255 - 8 bytes for MAC
@@ -49,7 +48,6 @@ struct FileLoader {
         let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 
         let destinationUrl = documentsUrl.appendingPathComponent(directoryName, isDirectory: true)
-        ZipArchive.unzipFile(atPath: path.path, toDestination: destinationUrl.path)
 
         return destinationUrl
     }    
