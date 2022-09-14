@@ -15,6 +15,7 @@ let package = Package(
             targets: ["Keycard"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/Boilertalk/secp256k1.swift", .branch("master")),
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "1.0.0"))
     ],
     targets: [
@@ -22,7 +23,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Keycard",
-            dependencies: ["CryptoSwift"]),
+            dependencies: ["secp256k1", "CryptoSwift"]),
         .testTarget(
             name: "KeycardTests",
             dependencies: ["Keycard"]),
