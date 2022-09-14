@@ -1,5 +1,5 @@
 import Foundation
-import SSZipArchive
+import ZipArchive
 
 struct FileLoader {
     private static let blockSize = 247 // 255 - 8 bytes for MAC
