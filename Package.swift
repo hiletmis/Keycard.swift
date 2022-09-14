@@ -15,7 +15,7 @@ let package = Package(
             targets: ["Keycard"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/status-im/secp256k1.swift.git", .revision("8d9f5ae68a56fde915cafd797a8ff19ccb6b98f3")),
+        .package(url: "https://github.com/status-im/secp256k1.swift.git", .revision("43bb7f4e4cfa6317272c50b9dae4e88e53e258c0")),
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "1.0.0"))
     ],
     targets: [
