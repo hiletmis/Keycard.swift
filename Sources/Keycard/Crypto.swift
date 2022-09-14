@@ -185,7 +185,7 @@ class Crypto {
        _ = secp256k1_ec_pubkey_parse(secp256k1Ctx, &pubKey, pubKeyBytes, pubKeyBytes.count)
        _ = secp256k1_ecdh(secp256k1Ctx, &ecdhOut, &pubKey, privKey, { (output, x, _, _) -> Int32 in memcpy(output, x, 32); return 1 }, nil)
 
-        return []
+        return ecdhOut
     }
 
     func secp256k1PublicToEthereumAddress(_ pubKey: [UInt8]) -> [UInt8] {
