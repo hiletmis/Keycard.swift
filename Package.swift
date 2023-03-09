@@ -14,15 +14,16 @@ let package = Package(
             name: "Keycard",
             targets: ["Keycard"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/status-im/secp256k1.swift.git", .revision("43bb7f4e4cfa6317272c50b9dae4e88e53e258c0"))
-        ],
+    dependencies: [    
+        .package (url: "https://github.com/hiletmis/EnnoUtil.git", from: "1.0.4"),
+        .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "1.0.0"))
+    ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Keycard",
-            dependencies: ["secp256k1"]),
+            dependencies: ["secp256k1", "CryptoSwift"]),
         .testTarget(
             name: "KeycardTests",
             dependencies: ["Keycard"]),
