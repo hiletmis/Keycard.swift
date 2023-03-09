@@ -15,7 +15,7 @@ let package = Package(
             targets: ["Keycard"]),
     ],
     dependencies: [    
-        .package (url: "https://github.com/hiletmis/EnnoUtil.git", from: "1.0.4"),
+        .package (url: "https://github.com/hiletmis/EnnoUtil.git", .exact(.init(stringLiteral: "1.0.5"))),
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "1.0.0"))
     ],
     targets: [
@@ -23,7 +23,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Keycard",
-            dependencies: ["secp256k1", "CryptoSwift"]),
+            dependencies: ["EnnoUtil", "CryptoSwift"]),
         .testTarget(
             name: "KeycardTests",
             dependencies: ["Keycard"]),
