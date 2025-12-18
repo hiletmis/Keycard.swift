@@ -15,26 +15,17 @@
         "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
         "state": {
           "branch": null,
-          "revision": "3a2acbb32ab68215ee1596ee6004da8e90c3721b",
-          "version": "1.0.0"
+          "revision": "19b3c3ceed117c5cc883517c4e658548315ba70b",
+          "version": "1.6.0"
         }
       },
       {
         "package": "secp256k1",
-        "repositoryURL": "https://github.com/status-im/secp256k1.swift.git",
-        "state": {
-          "branch": "master",
-          "revision": "4ab977cc2b2d7319be858bcb30a5d189bb149884",
-          "version": null
-        }
-      },
-      {
-        "package": "ZipArchive",
-        "repositoryURL": "https://github.com/ZipArchive/ZipArchive.git",
+        "repositoryURL": "https://github.com/GigaBitcoin/secp256k1.swift",
         "state": {
           "branch": null,
-          "revision": "38e0ce0598e06b034271f296a8e15b149c91aa19",
-          "version": "2.4.3"
+          "revision": "48fb20fce4ca3aad89180448a127d5bc16f0e44c",
+          "version": "0.10.0"
         }
       }
     ]

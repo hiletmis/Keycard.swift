@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -15,9 +15,8 @@ let package = Package(
             targets: ["Keycard"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/status-im/secp256k1.swift.git", .branch("master")),
-        .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "1.0.0")),
-        .package(url: "https://github.com/ZipArchive/ZipArchive.git", .upToNextMinor(from: "2.4.3")),
+        .package(name: "secp256k1", url: "https://github.com/GigaBitcoin/secp256k1.swift", .upToNextMinor(from: "0.10.0")),
+        .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "1.6.0")),
         .package(url: "https://github.com/attaswift/BigInt.git", from: "5.3.0"),
     ],
     targets: [
@@ -25,7 +24,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Keycard",
-            dependencies: ["secp256k1", "CryptoSwift", "ZipArchive", "BigInt"],
+            dependencies: ["secp256k1", "CryptoSwift", "BigInt"],
             swiftSettings: [.define("USE_SPM")]),
         .testTarget(
             name: "KeycardTests",

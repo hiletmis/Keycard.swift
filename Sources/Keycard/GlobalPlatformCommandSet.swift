@@ -105,21 +105,6 @@ public class GlobalPlatformCommandSet {
         return try secureChannel.send(installForInstall)
     }
 
-    public func loadKeycardPackage(fileURL: URL, callback: LoadCallback, shouldForceLoad: Bool = false) throws {
-        let fileLoader = try FileLoader(fileURL: fileURL)
-        if shouldForceLoad {
-            try deleteKeycardInstancesAndPackage()
-        }
-
-        try installKeycardPackage().checkOK()
-
-        let totalBlocks = fileLoader.underestimatedCount
-        for block in fileLoader {
-            try load(data: block.data, blockCount: block.blockCount, hasMoreBlocks: block.hasMoreBlocks).checkOK()
-            callback(block.blockCount + 1, UInt8(totalBlocks))
-        }
-    }
-
     public func installKeycardPackage() throws -> APDUResponse {
         try installForLoad(loadFileAID: Identifier.packageAID.val)
     }
