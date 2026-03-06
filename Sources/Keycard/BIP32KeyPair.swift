@@ -62,16 +62,17 @@ public struct BIP32KeyPair {
         if (tag == BIP32KeyTag.privKey.rawValue) {
             tlv.unreadLastTag()
             privKey = try tlv.readPrimitive(tag: BIP32KeyTag.privKey.rawValue)
-            
+        } else {
+            privKey = nil
+        }
+
+        if tag == BIP32KeyTag.chainCode.rawValue || tag == 0x82 {
+            tlv.unreadLastTag()
             do {
                 chain = try tlv.readPrimitive(tag: BIP32KeyTag.chainCode.rawValue)
             } catch (TLVError.endOfTLV) {
                 chain = nil
             }
-            
-        } else {
-            privKey = nil
-            chain = nil
         }
         
         self.init(privateKey: privKey, chainCode: chain, publicKey: pubKey)
